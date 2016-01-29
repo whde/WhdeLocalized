@@ -6,7 +6,9 @@
 1.生成 Localizable.strings, 添加对应的语言文件
 2.使用 CLocalizedString(@"确认设置") 
  例如:
+ ```bash
  titleLabel.text = CLocalizedString(@"管理地址");
+```
 
 # xib国际化
 xib使用的时候需要读取到对应语言文件夹下的nib,当我们设置语言不跟随系统的时候,系统不能正确读取
@@ -14,8 +16,6 @@ xib使用的时候需要读取到对应语言文件夹下的nib,当我们设置�
 1.对xib进行国际化,正常流程
 2.在使用xib的时候使用 CLocalizedNibName(@"AddShouHuoAddressViewController") 
  例如:
-     AddShouHuoAddressViewController *addShouHuoVC = [[AddShouHuoAddressViewController alloc] initWithNibName:CLocalizedNibName(@"AddShouHuoAddressViewController") bundle:nil];
-    [self.navigationController pushViewController:addShouHuoVC animated:YES];
 
 # 图片国际化
 和文字国际化类似,我们只需要找到国际化对应的是什么图片
@@ -23,14 +23,20 @@ xib使用的时候需要读取到对应语言文件夹下的nib,当我们设置�
 2.将图片添加到Project, 将ImageLocalized.strings中同一个Key在不同语言文件中对应到不同的语言图片
 3.使用CLocalizedImgName(图片名称Key)
  例如:
+  ```bash
  [UIImage imageNamed:CLocalizedImgName(@"djdzs_大家都在说.png")]
+```
 
 # 设置语言
 1.将所有的ViewController继承于一个BaseViewController
 2.在viewDidLoad方法下添加:
+  ```bash
   [[NSNotificationCenter defaultCenter] removeObserver:self name:LANGUAGE_CHANGE_NOTIFICATION object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageHasChanged) name:LANGUAGE_CHANGE_NOTIFICATION object:nil];
+```
+
 3.实现languageHasChanged方法:
+  ```bash
 - (void)languageHasChanged{
     if ([self isViewLoaded] && self.view.window == nil) {
         for (UIView *v in self.view.subviews) {
@@ -39,7 +45,11 @@ xib使用的时候需要读取到对应语言文件夹下的nib,当我们设置�
         self.view = nil;
     }
 }
+```
+
 4.用以下方法设置语言:
+  ```bash
   [CLanguageUtil setCurrentLanguage:Language_Hant];
+  ```
 这个方法完成会发送消息通知:LANGUAGE_CHANGE_NOTIFICATION, 通知页面移除, 在页面显示在屏幕上的时候会重新调用viewDidLoad这个方法
 
