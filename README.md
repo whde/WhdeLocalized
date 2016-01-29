@@ -6,7 +6,7 @@
 -1.生成 Localizable.strings, 添加对应的语言文件
 -2.使用 CLocalizedString(@"确认设置") 
  例如:
- ```bash
+```objective-c
  titleLabel.text = CLocalizedString(@"管理地址");
 ```
 
@@ -23,20 +23,20 @@
 -2.将图片添加到Project, 将ImageLocalized.strings中同一个Key在不同语言文件中对应到不同的语言图片
 -3.使用CLocalizedImgName(图片名称Key)
  例如:
-  ```bash
+ ```objective-c
  [UIImage imageNamed:CLocalizedImgName(@"djdzs_大家都在说.png")]
 ```
 
 # 设置语言
 -1.将所有的ViewController继承于一个BaseViewController
 -2.在viewDidLoad方法下添加:
-  ```bash
+ ```objective-c
   [[NSNotificationCenter defaultCenter] removeObserver:self name:LANGUAGE_CHANGE_NOTIFICATION object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageHasChanged) name:LANGUAGE_CHANGE_NOTIFICATION object:nil];
 ```
 
 -3.实现languageHasChanged方法:
-  ```bash
+```objective-c
 - (void)languageHasChanged{
     if ([self isViewLoaded] && self.view.window == nil) {
         for (UIView *v in self.view.subviews) {
@@ -48,7 +48,7 @@
 ```
 
 -4.用以下方法设置语言:
-  ```bash
+```objective-c
   [CLanguageUtil setCurrentLanguage:Language_Hant];
   ```
 -这个方法完成会发送消息通知:LANGUAGE_CHANGE_NOTIFICATION, 通知页面移除, 在页面显示在屏幕上的时候会重新调用viewDidLoad这个方法
