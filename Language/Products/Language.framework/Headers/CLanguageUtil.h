@@ -17,6 +17,7 @@ typedef NS_OPTIONS (NSInteger, Language){
 #define CLocalizedString(key) NSLocalizedStringFromTableInBundle(key, @"Localizable", [CLanguageUtil bundle], nil)
 #define CLocalizedNibName(key) [CLanguageUtil localizedNibName:key]
 #define CLocalizedImgName(key) NSLocalizedStringFromTableInBundle(key, @"ImageLocalized", [CLanguageUtil bundle], nil)
+
 @interface CLanguageUtil : NSObject
 +(NSBundle *)bundle;//获取当前资源文件
 
@@ -26,5 +27,6 @@ typedef NS_OPTIONS (NSInteger, Language){
 // 设置语言
 + (void)setCurrentLanguage:(Language)language;
 
+// 获取语言文件夹下的xib文件名
 + (NSString *)localizedNibName:(NSString *)key;
 @end
