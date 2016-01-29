@@ -24,3 +24,22 @@ xib使用的时候需要读取到对应语言文件夹下的nib,当我们设置�
 3.使用CLocalizedImgName(图片名称Key)
  例如:
  [UIImage imageNamed:CLocalizedImgName(@"djdzs_大家都在说.png")]
+
+# 设置语言
+1.将所有的ViewController继承于一个BaseViewController
+2.在viewDidLoad方法下添加:
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:LANGUAGE_CHANGE_NOTIFICATION object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageHasChanged) name:LANGUAGE_CHANGE_NOTIFICATION object:nil];
+3.实现languageHasChanged方法:
+- (void)languageHasChanged{
+    if ([self isViewLoaded] && self.view.window == nil) {
+        for (UIView *v in self.view.subviews) {
+            [v removeFromSuperview];
+        }
+        self.view = nil;
+    }
+}
+4.用以下方法设置语言:
+  [CLanguageUtil setCurrentLanguage:Language_Hant];
+这个方法完成会发送消息通知:LANGUAGE_CHANGE_NOTIFICATION, 通知页面移除, 在页面显示在屏幕上的时候会重新调用viewDidLoad这个方法
+
