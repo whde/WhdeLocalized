@@ -30,8 +30,13 @@ xib使用的时候需要读取到对应语言文件夹下的nib,当我们设置�
 - 1.将所有的ViewController继承于一个BaseViewController
 - 2.在viewDidLoad方法下添加:
  ```objective-c
-  [[NSNotificationCenter defaultCenter] removeObserver:self name:LANGUAGE_CHANGE_NOTIFICATION object:nil];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageHasChanged) name:LANGUAGE_CHANGE_NOTIFICATION object:nil];
+[[NSNotificationCenter defaultCenter] removeObserver:self
+                                                name:LANGUAGE_CHANGE_NOTIFICATION
+                                              object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self
+                                         selector:@selector(languageHasChanged) 
+                                             name:LANGUAGE_CHANGE_NOTIFICATION
+                                           object:nil];
 ```
 
 - 3.实现languageHasChanged方法:
