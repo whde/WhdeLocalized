@@ -15,14 +15,16 @@ xib使用的时候需要读取到对应语言文件夹下的nib,当我们设置�
 - 1.对xib进行国际化,正常流程
 - 2.在使用xib的时候使用 CLocalizedNibName(@"AddShouHuoAddressViewController") 
  例如:
-
+```objective-c
+AddShouHuoAddressViewController *addShouHuoVC = [[AddShouHuoAddressViewController alloc] initWithNibName:CLocalizedNibName(@"AddShouHuoAddressViewController") bundle:nil];
+```
 ## 图片国际化
 和文字国际化类似,我们只需要找到国际化对应的是什么图片
 - 1.生成 ImageLocalized.strings, 添加对应的语言文件
 - 2.将图片添加到Project, 将ImageLocalized.strings中同一个Key在不同语言文件中对应到不同的语言图片
 - 3.使用CLocalizedImgName(图片名称Key)
  例如:
- ```objective-c
+```objective-c
  [UIImage imageNamed:CLocalizedImgName(@"djdzs_大家都在说.png")]
 ```
 
