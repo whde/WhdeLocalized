@@ -5,7 +5,7 @@
 //  Created by whde on 16/1/6.
 //  Copyright © 2016年 whde. All rights reserved.
 //
-
+// GitHub:https://github.com/whde/WhdeLocalized
 #import <Foundation/Foundation.h>
 typedef NS_OPTIONS (NSInteger, Language){
     Language_Default,

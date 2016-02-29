@@ -5,6 +5,7 @@
 //  Created by whde on 16/1/13.
 //  Copyright © 2016年 Whde. All rights reserved.
 //
+// GitHub:https://github.com/whde/WhdeLocalized
 
 #import <UIKit/UIKit.h>
 
