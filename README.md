@@ -1,7 +1,9 @@
 ## WhdeLocalized
 - 针对国际化做的类,可以在应用程序中选择跟随系统,简体,繁体;
 - 本程序添加有English,简体,繁体,想要做更多国际化语言,可以自己添加更多;
+
 ![](https://raw.githubusercontent.com/whde/WhdeLocalized/master/Language/Untitled.gif)
+
 ## 文字国际化
 - 1.生成 Localizable.strings, 添加对应的语言文件
 - 2.使用 CLocalizedString(@"确认设置") 
