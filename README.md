@@ -15,10 +15,12 @@
 ## xib国际化
 xib使用的时候需要读取到对应语言文件夹下的nib,当我们设置语言不跟随系统的时候,系统不能正确读取; 因此,我们需要找到对应的nib
 - 1.对xib进行国际化,正常流程
-- 2.在使用xib的时候使用 CLocalizedNibName(@"AddShouHuoAddressViewController") 
+- 2.在使用xib的时候使用 CLocalizedNibName(@"AddViewController") 
  例如:
 ```objective-c
-AddShouHuoAddressViewController *addShouHuoVC = [[AddShouHuoAddressViewController alloc] initWithNibName:CLocalizedNibName(@"AddShouHuoAddressViewController") bundle:nil];
+AddViewController *addVC = [[AddViewController alloc]
+                             initWithNibName:CLocalizedNibName(@"AddViewController")
+                                      bundle:nil];
 ```
 ## 图片国际化
 和文字国际化类似,我们只需要找到国际化对应的是什么图片
