@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 #
 
 s.name         = "Language"
-s.version      = "1.0"
+s.version      = "1.0.1"
 s.summary      = "A short description of Language."
 
 # This description is used to generate tags and improve search results.
@@ -79,7 +79,7 @@ s.platform     = :ios, "7.0"
 #  Supports git, hg, bzr, svn and HTTP.
 #
 
-s.source       = { :git => "https://github.com/whde/WhdeLocalized.git", :tag => "1.0" }
+s.source       = { :git => "https://github.com/whde/WhdeLocalized.git", :tag => "1.0.1" }
 
 
 # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
