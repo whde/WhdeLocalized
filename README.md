@@ -4,6 +4,9 @@
 
 ![](https://raw.githubusercontent.com/whde/WhdeLocalized/master/Language/Untitled.gif)
 
+```objective-c
+pod 'Language', '~> 1.0.4'
+```
 ## 文字国际化
 - 1.生成 Localizable.strings, 添加对应的语言文件
 - 2.使用 CLocalizedString(@"确认设置") 
