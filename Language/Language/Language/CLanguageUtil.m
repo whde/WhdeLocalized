@@ -40,6 +40,15 @@ static NSBundle *bundle = nil;
 + (Language)getCurrentLanguage {
     NSString *language = [[NSUserDefaults standardUserDefaults] valueForKey:@"userLanguage"];
     if (language) {
+        if ([language rangeOfString:@"en"].location != NSNotFound) {
+            return Language_EN;
+        } else if ([language rangeOfString:@"Hans"].location != NSNotFound) {
+            return Language_Hans;
+        } else if ([language rangeOfString:@"Hant"].location != NSNotFound) {
+            return Language_Hant;
+        } else {
+            return Language_Default;
+        }
 #if DEBUG
         NSLog( @"%@" , language);
 #endif
@@ -50,15 +59,6 @@ static NSBundle *bundle = nil;
         //#if DEBUG
         //        NSLog( @"%@" , language);
         //#endif
-    }
-    if ([language rangeOfString:@"en"].location != NSNotFound) {
-        return Language_EN;
-    } else if ([language rangeOfString:@"Hans"].location != NSNotFound) {
-        return Language_Hans;
-    } else if ([language rangeOfString:@"Hant"].location != NSNotFound) {
-        return Language_Hant;
-    } else {
-        return Language_Default;
     }
 }
 
