@@ -7,6 +7,7 @@
 //
 
 #import "CLanguageUtil.h"
+
 static NSBundle *bundle = nil;
 @implementation CLanguageUtil
 
@@ -44,11 +45,11 @@ static NSBundle *bundle = nil;
 #endif
     } else{
         return Language_Default;
-        NSArray *languages = [NSLocale preferredLanguages];
-        language = [languages objectAtIndex:0];
-#if DEBUG
-        NSLog( @"%@" , language);
-#endif
+        //        NSArray *languages = [NSLocale preferredLanguages];
+        //        language = [languages objectAtIndex:0];
+        //#if DEBUG
+        //        NSLog( @"%@" , language);
+        //#endif
     }
     if ([language rangeOfString:@"en"].location != NSNotFound) {
         return Language_EN;
