@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name          = "Language"
-s.version       = "1.0.3"
+s.version       = "1.0.4"
 s.summary       = "iOS Language."
 s.homepage      = "https://github.com/whde/WhdeLocalized"
 s.license       = 'MIT'
@@ -14,3 +14,4 @@ s.description   = <<-DESC
 It is a Language used on iOS, which implement by Objective-C.
 DESC
 end
+
