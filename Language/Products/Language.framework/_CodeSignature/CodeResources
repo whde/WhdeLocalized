@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PI4Z/44LEwcD33dVXzGJDhpSdSY=
+		UZxNBQ0Yyjo9bEp0L9dAcfktki0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -20,13 +20,27 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/CLanguageUtil.h</key>
-		<data>
-		O7/3vWOfiffxGo7ILD9j2eHS/yw=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			O7/3vWOfiffxGo7ILD9j2eHS/yw=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ph8QnoolTfpp4NlxYtgDcfmnl+ezpJFjdNwzZDifUCY=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		MbpHjUkwJmM19hIZRuQNSGFWiHw=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			MbpHjUkwJmM19hIZRuQNSGFWiHw=
+			</data>
+			<key>hash2</key>
+			<data>
+			2gSqZVf3Smp2DhDHPKJzIEXd66R24uIUniE1wcePDUg=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>
