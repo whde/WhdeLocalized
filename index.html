@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Whdelocalized by whde</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Whdelocalized</h1>
+      <h2 class="project-tagline">针对国际化做的类,可以在应用程序中选择跟随系统,简体,繁体</h2>
+      <a href="https://github.com/whde/WhdeLocalized" class="btn">View on GitHub</a>
+      <a href="https://github.com/whde/WhdeLocalized/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/whde/WhdeLocalized/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="whdelocalized" class="anchor" href="#whdelocalized" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WhdeLocalized</h2>
+
+<ul>
+<li>针对国际化做的类,可以在应用程序中选择跟随系统,简体,繁体;</li>
+<li>本程序添加有English,简体,繁体,想要做更多国际化语言,可以自己添加更多;</li>
+</ul>
+
+<div class="highlight highlight-source-objc"><pre>pod <span class="pl-s"><span class="pl-pds">'</span>Language<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>~&gt; 1.0.4<span class="pl-pds">'</span></span></pre></div>
+
+<p><img src="https://raw.githubusercontent.com/whde/WhdeLocalized/master/Language/Untitled.gif" alt=""></p>
+
+<h2>
+<a id="文字国际化" class="anchor" href="#%E6%96%87%E5%AD%97%E5%9B%BD%E9%99%85%E5%8C%96" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文字国际化</h2>
+
+<ul>
+<li>1.生成 Localizable.strings, 添加对应的语言文件</li>
+<li>2.使用 CLocalizedString(@"确认设置") 
+例如:</li>
+</ul>
+
+<div class="highlight highlight-source-objc"><pre> titleLabel.text = CLocalizedString(<span class="pl-s"><span class="pl-pds">@"</span>管理地址<span class="pl-pds">"</span></span>);</pre></div>
+
+<h2>
+<a id="xib国际化" class="anchor" href="#xib%E5%9B%BD%E9%99%85%E5%8C%96" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>xib国际化</h2>
+
+<p>xib使用的时候需要读取到对应语言文件夹下的nib,当我们设置语言不跟随系统的时候,系统不能正确读取; 因此,我们需要找到对应的nib</p>
+
+<ul>
+<li>1.对xib进行国际化,正常流程</li>
+<li>2.在使用xib的时候使用 CLocalizedNibName(@"AddViewController") 
+例如:</li>
+</ul>
+
+<div class="highlight highlight-source-objc"><pre>AddViewController *addVC = [[AddViewController <span class="pl-c1">alloc</span>]
+                             <span class="pl-c1">initWithNibName:</span><span class="pl-c1">CLocalizedNibName</span>(<span class="pl-s"><span class="pl-pds">@"</span>AddViewController<span class="pl-pds">"</span></span>)
+                                      <span class="pl-c1">bundle:</span><span class="pl-c1">nil</span>];</pre></div>
+
+<h2>
+<a id="图片国际化" class="anchor" href="#%E5%9B%BE%E7%89%87%E5%9B%BD%E9%99%85%E5%8C%96" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>图片国际化</h2>
+
+<p>和文字国际化类似,我们只需要找到国际化对应的是什么图片</p>
+
+<ul>
+<li>1.生成 ImageLocalized.strings, 添加对应的语言文件</li>
+<li>2.将图片添加到Project, 将ImageLocalized.strings中同一个Key在不同语言文件中对应到不同的语言图片</li>
+<li>3.使用CLocalizedImgName(图片名称Key)
+例如:</li>
+</ul>
+
+<div class="highlight highlight-source-objc"><pre> [UIImage <span class="pl-c1">imageNamed:</span><span class="pl-c1">CLocalizedImgName</span>(<span class="pl-s"><span class="pl-pds">@"</span>djdzs_大家都在说.png<span class="pl-pds">"</span></span>)]</pre></div>
+
+<h2>
+<a id="设置语言" class="anchor" href="#%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>设置语言</h2>
+
+<ul>
+<li>1.将所有的ViewController继承于一个BaseViewController</li>
+<li>2.在viewDidLoad方法下添加:</li>
+</ul>
+
+<div class="highlight highlight-source-objc"><pre>[[<span class="pl-c1">NSNotificationCenter</span> <span class="pl-c1">defaultCenter</span>] <span class="pl-c1">removeObserver:</span><span class="pl-v">self</span>
+                                                <span class="pl-c1">name:</span>LANGUAGE_CHANGE_NOTIFICATION
+                                              <span class="pl-c1">object:</span><span class="pl-c1">nil</span>];
+[[<span class="pl-c1">NSNotificationCenter</span> <span class="pl-c1">defaultCenter</span>] <span class="pl-c1">addObserver:</span><span class="pl-v">self</span>
+                                         <span class="pl-c1">selector:</span><span class="pl-k">@selector</span>(<span class="pl-c1">languageHasChanged</span>) 
+                                             <span class="pl-c1">name:</span>LANGUAGE_CHANGE_NOTIFICATION
+                                           <span class="pl-c1">object:</span><span class="pl-c1">nil</span>];</pre></div>
+
+<ul>
+<li>3.实现languageHasChanged方法:</li>
+</ul>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">void</span>)languageHasChanged{
+    <span class="pl-k">if</span> ([<span class="pl-v">self</span> <span class="pl-c1">isViewLoaded</span>] &amp;&amp; self.<span class="pl-smi">view</span>.<span class="pl-smi">window</span> == <span class="pl-c1">nil</span>) {
+        <span class="pl-k">for</span> (UIView *v in self.<span class="pl-smi">view</span>.<span class="pl-smi">subviews</span>) {
+            [v <span class="pl-c1">removeFromSuperview</span>];
+        }
+        self.<span class="pl-smi">view</span> = <span class="pl-c1">nil</span>;
+    }
+}</pre></div>
+
+<ul>
+<li>4.用以下方法设置语言:</li>
+</ul>
+
+<div class="highlight highlight-source-objc"><pre>  [CLanguageUtil <span class="pl-c1">setCurrentLanguage:</span>Language_Hant];</pre></div>
+
+<p>这个方法完成会发送消息通知:LANGUAGE_CHANGE_NOTIFICATION, 通知页面移除, 在页面显示在屏幕上的时候会重新调用viewDidLoad这个方法</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/whde/WhdeLocalized">Whdelocalized</a> is maintained by <a href="https://github.com/whde">whde</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
