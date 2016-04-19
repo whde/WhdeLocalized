@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		F80524711C45F9B400753325 /* Language.h in Headers */ = {isa = PBXBuildFile; fileRef = F80524701C45F9B400753325 /* Language.h */; };
+		F80524711C45F9B400753325 /* Language.h in Headers */ = {isa = PBXBuildFile; fileRef = F80524701C45F9B400753325 /* Language.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F805247B1C45FE1C00753325 /* CLanguageUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F80524791C45FE1C00753325 /* CLanguageUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F805247C1C45FE1C00753325 /* CLanguageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F805247A1C45FE1C00753325 /* CLanguageUtil.m */; };
 /* End PBXBuildFile section */
@@ -285,6 +285,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziyoubang.Language;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -302,6 +303,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziyoubang.Language;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -311,6 +313,7 @@
 		F805247F1C45FEF400753325 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -319,6 +322,7 @@
 		F80524801C45FEF400753325 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
